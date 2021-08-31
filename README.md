@@ -17,8 +17,9 @@ Fig. 1. Structure of BAT.
 
 ## Usage
 
-1.First, you can download the dataset from [ISIC](https://www.isic-archive.com/) challenge.
-2.Second, for pre-processing the dataset, you can run:
+1. First, you can download the dataset from [ISIC](https://www.isic-archive.com/) challenge.
+
+2. Second, for pre-processing the dataset, you can run:
 
 ```bash
 $ python src/resize.py
