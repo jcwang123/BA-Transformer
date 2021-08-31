@@ -28,6 +28,12 @@ $ python src/point_gen.py
 
 3. Third, before running the network, you should first download the code of [CELL_DETR](https://github.com/ChristophReich1996/Cell-DETR) into [lib](https://github.com/jcwang123/BA-Transformer/lib) and install it.
 
+4. In the end, for testing the model, you could run:
+
+```bash
+$ python net/trans_deeplab.py
+```
+
 ## TODO
 
 We will update the latest training version under the same setting as [CA-Net](https://github.com/HiLab-git/CA-Net).
