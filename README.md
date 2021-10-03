@@ -44,3 +44,11 @@ $ python net/trans_deeplab.py
 We will update the latest training version under the same setting as [CA-Net](https://github.com/HiLab-git/CA-Net).
 
 ## Citation
+@inproceedings{wang2021boundary,
+  title={Boundary-Aware Transformers for Skin Lesion Segmentation},
+  author={Wang, Jiacheng and Wei, Lan and Wang, Liansheng and Zhou, Qichao and Zhu, Lei and Qin, Jing},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={206--216},
+  year={2021},
+  organization={Springer}
+}
