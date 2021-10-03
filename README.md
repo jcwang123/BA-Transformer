@@ -8,6 +8,10 @@ This paper has been accepted by MICCAI.
 ![bat](./framework.jpg)
 Fig. 1. Structure of BAT.
 
+## Message
+Sry for the delay！！！Orz Orz Orz Orz
+After the covid-19, I'll go to the laboratory and upload my project!
+
 ## Code List
 
 - [x] Network
