@@ -44,7 +44,7 @@ $ python net/trans_deeplab.py
 We will update the latest training version under the same setting as [CA-Net](https://github.com/HiLab-git/CA-Net).
 
 ## Citation
-If you find LWANet useful in your research, please consider citing:
+If you find BAT useful in your research, please consider citing:
 
 ```
 @inproceedings{wang2021boundary,
