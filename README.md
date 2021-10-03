@@ -44,6 +44,9 @@ $ python net/trans_deeplab.py
 We will update the latest training version under the same setting as [CA-Net](https://github.com/HiLab-git/CA-Net).
 
 ## Citation
+If you find LWANet useful in your research, please consider citing:
+
+```
 @inproceedings{wang2021boundary,
   title={Boundary-Aware Transformers for Skin Lesion Segmentation},
   author={Wang, Jiacheng and Wei, Lan and Wang, Liansheng and Zhou, Qichao and Zhu, Lei and Qin, Jing},
@@ -52,3 +55,4 @@ We will update the latest training version under the same setting as [CA-Net](ht
   year={2021},
   organization={Springer}
 }
+```
