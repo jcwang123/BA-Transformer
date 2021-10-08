@@ -3,15 +3,11 @@
 Recently, transformers have been proposed as a promising tool for global context modeling by employing a powerful global attention mechanism, but one of
 their main shortcomings when applied to segmentation tasks is that they cannot effectively extract sufficient local details to tackle ambiguous boundaries. We propose a novel boundary-aware transformer (BAT) to comprehensively address the challenges of automatic skin lesion segmentation.
 
-This paper has been accepted by MICCAI.
+This paper has been accepted by [MICCAI](https://www.springerprofessional.de/en/boundary-aware-transformers-for-skin-lesion-segmentation/19687860).
+Get the full paper on [Arxiv]().
 
 ![bat](./framework.jpg)
 Fig. 1. Structure of BAT.
-
-## Message
-Sry for the delay！！！Orz Orz Orz Orz
-
-After the covid-19, I'll go to the laboratory and upload my project!
 
 ## Code List
 
@@ -19,6 +15,8 @@ After the covid-19, I'll go to the laboratory and upload my project!
 - [ ] Pre-processing
 - [ ] Training Codes
 - [ ] MS
+
+For more details or any questions, please feel easy to contact us by email ^\_^
 
 ## Usage
 
@@ -44,6 +42,7 @@ $ python net/trans_deeplab.py
 We will update the latest training version under the same setting as [CA-Net](https://github.com/HiLab-git/CA-Net).
 
 ## Citation
+
 If you find BAT useful in your research, please consider citing:
 
 ```
