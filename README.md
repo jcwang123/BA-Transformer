@@ -4,7 +4,7 @@ Recently, transformers have been proposed as a promising tool for global context
 their main shortcomings when applied to segmentation tasks is that they cannot effectively extract sufficient local details to tackle ambiguous boundaries. We propose a novel boundary-aware transformer (BAT) to comprehensively address the challenges of automatic skin lesion segmentation.
 
 This paper has been accepted by [MICCAI](https://www.springerprofessional.de/en/boundary-aware-transformers-for-skin-lesion-segmentation/19687860).
-Get the full paper on [Arxiv]().
+Get the full paper on [Arxiv](https://arxiv.org/abs/2110.03864).
 
 ![bat](./framework.jpg)
 Fig. 1. Structure of BAT.
