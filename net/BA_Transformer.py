@@ -13,7 +13,7 @@ from net.resnet import ResNet50_OS16, ResNet18_OS8
 from net.ASPP import ASPP, ASPP_Bottleneck
 
 
-class DeepLabV3(nn.Module):
+class BAT(nn.Module):
     def __init__(self,
                  num_classes,
                  num_layers,
@@ -26,7 +26,7 @@ class DeepLabV3(nn.Module):
                  segmentation_attention_heads=8,
                  dropout=0):
 
-        super(DeepLabV3, self).__init__()
+        super(BAT, self).__init__()
 
         self.num_classes = num_classes
         layers = num_layers
@@ -102,20 +102,20 @@ class DeepLabV3(nn.Module):
                                           dim=-1).permute(
                                               2, 0, 1).unsqueeze(0).repeat(
                                                   batch_size, 1, 1, 1)
-        latent_tensor, features_encoded = self.transformer(
+        boundary_embedding, features_encoded = self.transformer(
             features, None, self.query_positions, positional_embeddings)
-        latent_tensor = latent_tensor.permute(2, 0, 1)
+        boundary_embedding = boundary_embedding.permute(2, 0, 1)
 
         if self.point_pred == 1:
-            point = self.point_pre_layer(features_encoded)
-            point = torch.sigmoid(point)
-            features_encoded = point * features_encoded + features_encoded
+            point_map = self.point_pre_layer(features_encoded)
+            point_map = torch.sigmoid(point_map)
+            features_encoded = point_map * features_encoded + features_encoded
 
-        bounding_box_attention_masks = self.segmentation_attention_head(
-            latent_tensor, features_encoded.contiguous())
+        point_map_2 = self.segmentation_attention_head(
+            boundary_embedding, features_encoded.contiguous())
 
-        trans_feature_maps = torch.cat(
-            (features_encoded, bounding_box_attention_masks[:, 0]), dim=1)
+        trans_feature_maps = torch.cat((features_encoded, point_map_2[:, 0]),
+                                       dim=1)
         trans_feature_maps = self.trans_out_conv(trans_feature_maps)
 
         output = self.aspp(
@@ -128,12 +128,12 @@ class DeepLabV3(nn.Module):
             return output
 
         elif self.point_pred == 1:
-            return output, point
+            return output, point_map
 
 
 if __name__ == '__main__':
     os.environ['CUDA_VISIBLE_DEVICES'] = '0'
-    model = DeepLabV3(1, 50, 1)
+    model = BAT(1, 50, 1)
     d = torch.rand((5, 3, 512, 512))
     o, p = model(d)
     print(o.size())
