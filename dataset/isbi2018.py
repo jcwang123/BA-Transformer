@@ -119,18 +119,6 @@ class myDataset(data.Dataset):
         return self.num_samples
 
 
-def random_seperate_dataset():
-    indexes = [l[:-4] for l in os.listdir('/raid/wl/ISBI_2018/Train/Image/')]
-    random.shuffle(indexes)
-    names = [
-        indexes[:500], indexes[500:1000], indexes[1000:1500],
-        indexes[1500:2000], indexes[2000]
-    ]
-    with open('/raid/wl/ISBI_2018/data_split.json', 'w') as f:
-        json.dump(names, f)
-    return
-
-
 if __name__ == '__main__':
     from tqdm import tqdm
     dataset = myDataset(fold=0, split='train', aug=False)
