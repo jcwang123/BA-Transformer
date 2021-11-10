@@ -1,10 +1,15 @@
 # Boundary-aware Transformers for Skin Lesion Segmentation
 
-> Recently, transformers have been proposed as a promising tool for global context modeling by employing a powerful global attention mechanism, but one of their main shortcomings when applied to segmentation tasks is that they cannot effectively extract sufficient local details to tackle ambiguous boundaries. We propose a novel boundary-aware transformer (BAT) to comprehensively address the challenges of automatic skin lesion segmentation.
+## Introduction
+
+This is an official release of the paper **Boundary-aware Transformers for Skin Lesion Segmentation**.
 
 > This paper has been accepted by [MICCAI](https://www.springerprofessional.de/en/boundary-aware-transformers-for-skin-lesion-segmentation/19687860).
 
-> Get the full paper on [Arxiv](https://arxiv.org/abs/2110.03864).
+> [**K-Net:Towards Unified Image Segmentation**](https://arxiv.org/abs/2110.03864),  
+> Jiacheng Wang, Yueming Jin, Shuntian Cai, Hongzhi Xu, Pheng-Ann Heng, Jing Qin, Liansheng Wang  
+> In: Medical Image Computing and Computer Assisted Intervention (MICCAI), 2021  
+> [[arXiv](https://arxiv.org/abs/2110.03864)][[Bibetex](https://github.com/jcwang123/BA-Transformer#citation)]
 
 <div align="center" border=> <img src=framework.jpg width="400" > </div>
 
@@ -23,22 +28,20 @@
 
 ## Usage
 
-1. First, you can download the dataset from [ISIC](https://www.isic-archive.com/) challenge.
+### Dataset
 
-2. Second, for pre-processing the dataset, you can run:
+Please download the dataset from [ISIC](https://www.isic-archive.com/) challenge.
+
+### Pre-processing
+
+Please run:
 
 ```bash
 $ python src/resize.py
 $ python src/point_gen.py
 ```
 
-4. Third, for testing the model, you could run:
-
-```bash
-$ python models/BAT.py
-```
-
-5. If correct testing the models, you could start to run the experiments.
+### Training and testing
 
 ## TODO
 
