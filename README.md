@@ -4,8 +4,6 @@
 
 This is an official release of the paper **Boundary-aware Transformers for Skin Lesion Segmentation**.
 
-> This paper has been accepted by [MICCAI](https://www.springerprofessional.de/en/boundary-aware-transformers-for-skin-lesion-segmentation/19687860).
-
 > [**K-Net:Towards Unified Image Segmentation**](https://arxiv.org/abs/2110.03864),  
 > Jiacheng Wang, Yueming Jin, Shuntian Cai, Hongzhi Xu, Pheng-Ann Heng, Jing Qin, Liansheng Wang  
 > In: Medical Image Computing and Computer Assisted Intervention (MICCAI), 2021  
@@ -24,7 +22,9 @@ This is an official release of the paper **Boundary-aware Transformers for Skin 
 - [x] Training Codes
 - [ ] MS
 
-> For more details or any questions, please feel easy to contact us by email ^\_^
+For more details or any questions, please feel easy to contact us by email ^\_^
+
+## Results
 
 ## Usage
 
