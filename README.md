@@ -4,7 +4,7 @@
 
 This is an official release of the paper **Boundary-aware Transformers for Skin Lesion Segmentation**.
 
-> [**K-Net:Towards Unified Image Segmentation**](https://arxiv.org/abs/2110.03864),  
+> [**Boundary-aware Transformers for Skin Lesion Segmentation**](https://arxiv.org/abs/2110.03864),  
 > **Jiacheng Wang**, Yueming Jin, Shuntian Cai, Hongzhi Xu, Pheng-Ann Heng, Jing Qin, Liansheng Wang  
 > In: Medical Image Computing and Computer Assisted Intervention (MICCAI), 2021  
 > [[arXiv](https://arxiv.org/abs/2110.03864)][[Bibetex](https://github.com/jcwang123/BA-Transformer#citation)]
