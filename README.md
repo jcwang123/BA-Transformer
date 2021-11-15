@@ -37,9 +37,15 @@ Please download the dataset from [ISIC](https://www.isic-archive.com/) challenge
 Please run:
 
 ```bash
-$ python src/resize.py
+$ python src/ISBI_resize.py
 $ python src/point_gen.py
 ```
+
+### Point Maps
+
+For your convenience, we release the processed maps and the dataset division. Please download them from [Baidu Disk](https://pan.baidu.com/s/1pNbH5zUI8Dw_ZAC8Iq9f7w).
+
+Code：kmqr
 
 ### Training and testing
 
