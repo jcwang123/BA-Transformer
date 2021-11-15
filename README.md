@@ -13,6 +13,7 @@ This is an official release of the paper **Boundary-aware Transformers for Skin 
 
 ## News
 
+- **[11/15 2021] We have released the point map data.**
 - **[11/08 2021] We have released the training / testing codes.**
 
 ## Code List
