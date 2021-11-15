@@ -43,9 +43,11 @@ $ python src/point_gen.py
 
 ### Point Maps
 
-For your convenience, we release the processed maps and the dataset division. Please download them from [Baidu Disk](https://pan.baidu.com/s/1pNbH5zUI8Dw_ZAC8Iq9f7w).
+For your convenience, we release the processed maps and the dataset division.
 
-Code：kmqr
+Please download them from [Baidu Disk](https://pan.baidu.com/s/1pNbH5zUI8Dw_ZAC8Iq9f7w). Code：kmqr.
+
+The file names are equal to the original image names.
 
 ### Training and testing
 
