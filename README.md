@@ -48,6 +48,8 @@ For your convenience, we release the processed maps and the dataset division.
 
 Please download them from [Baidu Disk](https://pan.baidu.com/s/1pNbH5zUI8Dw_ZAC8Iq9f7w). Code：kmqr.
 
+Or [Google Driver](https://drive.google.com/file/d/1mSLt-ipLM9CxrfvwgjJr5V9NKrpnQaQ5/view?usp=sharing)
+
 The file names are equal to the original image names.
 
 ### Training and testing
