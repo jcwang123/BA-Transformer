@@ -55,7 +55,7 @@ The file names are equal to the original image names.
 
 ### Testing
 
-Download the pretrained weight for PH2 dataset from [Google Drive]().
+Download the pretrained weight for PH2 dataset from [Google Drive](https://drive.google.com/file/d/1-eMHYX1fr-QvI3n50S0xqWcxc3FGsMgE/view?usp=sharing).
 
 Then, please run:
 
@@ -69,8 +69,8 @@ $ python test.py --dataset isic2016
 | ------ | ------ | ------ |------ |------ |
 Lee *et al.* | 0.918 | 0.843 | - | - |
 BAT (paper)| 0.921 | 0.858 | - | - |
-BAT (val.)| 0.918 | 0.854 | 6.664 | 0.923 |
-BAT (w/o val.)| 0.923 | 0.864 | 7.515 | 1.043 |
+BAT (val.)| 0.918 | 0.854 | **6.664** | **0.923** |
+BAT (w/o val.)| **0.923** | **0.864** | 7.515 | 1.043 |
 
 
 ## Citation
