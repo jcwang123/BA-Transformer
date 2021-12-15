@@ -2,3 +2,5 @@
 Cell_DETR
 weights
 logs/
+**/__pycache__
+**/*.pyc

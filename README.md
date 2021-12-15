@@ -55,19 +55,23 @@ The file names are equal to the original image names.
 
 ### Testing
 
-1. Download the pretrained weight for [PH2]()
+Download the pretrained weight for PH2 dataset from [Google Drive]().
 
-Please run:
+Then, please run:
+
 ```bash
-$ python test.py
+$ python test.py --dataset isic2016
 ```
 
+### Result
 
-## TODO
+|Method | Dice | IoU | HD95 |  ASSD|
+| ------ | ------ | ------ |------ |------ |
+Lee *et al.* | 0.918 | 0.843 | - | - |
+BAT (paper)| 0.921 | 0.858 | - | - |
+BAT (val.)| 0.918 | 0.854 | 6.664 | 0.923 |
+BAT (w/o val.)| 0.923 | 0.864 | 7.515 | 1.043 |
 
-1. We will improve the network to give a more powerful and simple lesion segmentation framework.
-
-2. The weights will be uploaded before next month.
 
 ## Citation
 

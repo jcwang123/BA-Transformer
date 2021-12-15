@@ -7,43 +7,57 @@ import torch.nn.functional as F
 from medpy.metric.binary import hd, hd95, dc, jc, assd
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--log_name', type=str, default='test')
+parser.add_argument('--log_name',
+                    type=str,
+                    default='bat_1_1_0_e6_loss_0_aug_1')
 parser.add_argument('--gpu', type=str, default='1')
 parser.add_argument('--fold', type=str, default='0')
-parser.add_argument('--layer', type=int, default=18)
+parser.add_argument('--dataset', type=str, default='isic2016')
+
+parser.add_argument('--arch', type=str, default='BAT')
+parser.add_argument('--net_layer', type=int, default=50)
+# pre-train
+parser.add_argument('--pre', type=int, default=0)
+
+# transformer
 parser.add_argument('--trans', type=int, default=1)
+
+# point constrain
 parser.add_argument('--point_pred', type=int, default=1)
-parser.add_argument('--arch', type=str, default='Transformer')
-parser.add_argument('--dataset', type=str, default='isbi2016')
-parser.add_argument('--wp',
-                    type=str,
-                    default='./weights/16_BAT_bca_encoder+decoder.pkl')
+parser.add_argument('--ppl', type=int, default=6)
+
+# cross-scale framework
+parser.add_argument('--cross', type=int, default=0)
+
 parse_config = parser.parse_args()
 print(parse_config)
 os.environ['CUDA_VISIBLE_DEVICES'] = parse_config.gpu
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-if parse_config.dataset == 'isbi2018':
+if parse_config.dataset == 'isic2018':
     from dataset.isic2018 import norm01, myDataset
     dataset = myDataset(parse_config.fold, 'valid', aug=False)
-elif parse_config.dataset == 'isbi2016':
+elif parse_config.dataset == 'isic2016':
     from dataset.isic2016 import norm01, myDataset
     dataset = myDataset('test', aug=False)
 
-if parse_config.arch is 'Transformer':
+if parse_config.arch == 'BAT':
     if parse_config.trans == 1:
-        if parse_config.point_pred == 1:
-            from Ours.Base_transformer import BAT
-            model = BAT(1, parse_config.layer, parse_config.point_pred).cuda()
+        from Ours.Base_transformer import BAT
+        model = BAT(1, parse_config.net_layer, parse_config.point_pred,
+                    parse_config.ppl).cuda()
+    else:
+        from Ours.base import DeepLabV3
+        model = DeepLabV3(1, parse_config.net_layer).cuda()
 
-dir_path = "./logs/{}/".format(parse_config.log_name)
-os.makedirs(dir_path, exist_ok=True)
+dir_path = os.path.dirname(
+    os.path.abspath(__file__)) + "/logs/{}/{}/fold_{}/".format(
+        parse_config.dataset, parse_config.log_name, parse_config.fold)
 
 from src.utils import load_model
 
-# model = load_model(model, dir_path + 'model/best.pkl')
-model = load_model(model, parse_config.wp)
+model = load_model(model, dir_path + 'model/best.pkl')
 
 # logging
 txt_path = os.path.join(dir_path + 'parameter.txt')
@@ -53,7 +67,7 @@ logging.basicConfig(filename=txt_path,
                     datefmt='%H:%M:%S')
 logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
 test_loader = torch.utils.data.DataLoader(dataset,
-                                          batch_size=4,
+                                          batch_size=8,
                                           pin_memory=True,
                                           drop_last=False,
                                           shuffle=False)
