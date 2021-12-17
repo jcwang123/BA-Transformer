@@ -23,7 +23,7 @@ This is an official release of the paper **Boundary-aware Transformers for Skin 
 - [x] Training Codes
 - [ ] MS
 
-For more details or any questions, please feel easy to contact us by email ^\_^
+For more details or any questions, please feel easy to contact us by email (jiachengw@stu.xmu.edu.cn).
 
 
 ## Usage
