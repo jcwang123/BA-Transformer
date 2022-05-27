@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 def process_isic2018(
-        dim=(512, 512), save_dir='/raid/wjc/data/skin_lesion/isic2018/'):
+        dim=(352, 352), save_dir='/raid/wjc/data/skin_lesion/isic2018/'):
     image_dir_path = '/raid/wl/2018_raw_data/ISIC2018_Task1-2_Training_Input/'
     mask_dir_path = '/raid/wl/2018_raw_data/ISIC2018_Task1_Training_GroundTruth/'
 
@@ -32,20 +32,28 @@ def process_isic2018(
             _id = os.path.basename(image_path)[:-4].split('_')[1]
             image_path = os.path.join(image_dir_path, image_path)
             mask_path = os.path.join(mask_dir_path, mask_path)
-            image = plt.imread(image_path)
-            mask = plt.imread(mask_path)
+            image = cv2.imread(image_path)
+            mask = cv2.imread(mask_path)
 
             image_new = cv2.resize(image, dim, interpolation=cv2.INTER_CUBIC)
+            image_new = np.array(image_new, dtype=np.uint8)
             mask_new = cv2.resize(mask, dim, interpolation=cv2.INTER_NEAREST)
+            mask_new = cv2.blur(img,(3,3))
+            mask_new = np.array(mask_new, dtype=np.uint8)
 
             save_dir_path = save_dir + '/Image'
             os.makedirs(save_dir_path, exist_ok=True)
-            np.save(os.path.join(save_dir_path, _id + '.npy'), image_new)
+            # np.save(os.path.join(save_dir_path, _id + '.npy'), image_new)
+            print(image_new.shape)
+            cv2.imwrite(os.path.join(save_dir_path, 'ISIC_' + _id + '.jpg'),
+                        image_new)
 
             save_dir_path = save_dir + '/Label'
             os.makedirs(save_dir_path, exist_ok=True)
-            np.save(os.path.join(save_dir_path, _id + '.npy'), mask_new)
-
+            # np.save(os.path.join(save_dir_path, _id + '.npy'), mask_new)
+            cv2.imwrite(os.path.join(save_dir_path, 'ISIC_' + _id + '.jpg'),
+                        mask_new)
+ 
 
 def process_ph2():
     PH2_images_path = '/data2/cf_data/skinlesion_segment/PH2_rawdata/PH2_Dataset_images'
@@ -78,4 +86,4 @@ def process_ph2():
 
 
 if __name__ == '__main__':
-    process_isic2018()
+    process_isic2018(dim=(352,352), save_dir='/raid/wjc/data/skin_lesion/isic2018_jpg_352_smooth/')
