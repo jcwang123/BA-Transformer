@@ -56,21 +56,7 @@ The file names are equal to the original image names.
 ### Testing
 
 Download the pretrained weight for PH2 dataset from [Google Drive](https://drive.google.com/file/d/1-eMHYX1fr-QvI3n50S0xqWcxc3FGsMgE/view?usp=sharing).
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-Then, please run:
-
-=======
-
-Then, please run:
-
->>>>>>> b37c2743a0c135f1baaeddad6207f5e071d770d9
-=======
-
-Then, please run:
-
->>>>>>> b37c2743a0c135f1baaeddad6207f5e071d770d9
 ```bash
 $ python test.py --dataset isic2016
 ```
