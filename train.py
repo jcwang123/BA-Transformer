@@ -195,9 +195,7 @@ def train(epoch):
             # print(point_maps_pre[-1].shape, point_c4.shape)
             assert (point_maps_pre[-1].shape == point_c4.shape)
 
-            point_loss = 0.
-            for i in range(len(point_maps_pre)):
-                point_loss += criteon(point_maps_pre[i], point_c4)
+            point_loss = np.sum([criteon(p, point_c4) for p in point_maps_pre])
             point_loss = point_loss / len(point_maps_pre)
 
             loss = loss_dc + point_loss  # point_loss weight: 3
